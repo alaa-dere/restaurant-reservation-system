@@ -58,3 +58,4 @@ Key design decisions:
 ## Stored Procedures
 
 - Created `sp_ResrvedTablesReport` to retrieve reserved tables within a specified date range.
+- Created `sp_AddNewOrder` to validate reservation and employee records before inserting a new order.
