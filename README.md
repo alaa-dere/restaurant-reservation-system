@@ -53,3 +53,4 @@ Key design decisions:
 - Rank restaurants by reservation frequency using aggregation.
 - Identify the most popular menu item for each restaurant for a given month using joins and window functions.
 - Identify the most popular menu item for each restaurant for a given month using joins and window functions.
+- Created `fn_CalculateEmployeeSalary` to calculate employee salary based on the number of processed orders and employee position rank.
