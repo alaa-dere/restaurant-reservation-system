@@ -52,3 +52,4 @@ Key design decisions:
 - Use a CTE to identify reservations that have two or more orders.
 - Rank restaurants by reservation frequency using aggregation.
 - Identify the most popular menu item for each restaurant for a given month using joins and window functions.
+- Identify the most popular menu item for each restaurant for a given month using joins and window functions.
