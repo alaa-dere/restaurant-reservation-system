@@ -51,3 +51,4 @@ Key design decisions:
 - Created `[Employees details]` to display employee information along with restaurant details.
 - Use a CTE to identify reservations that have two or more orders.
 - Rank restaurants by reservation frequency using aggregation.
+- Identify the most popular menu item for each restaurant for a given month using joins and window functions.
