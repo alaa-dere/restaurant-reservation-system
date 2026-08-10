@@ -54,3 +54,7 @@ Key design decisions:
 - Identify the most popular menu item for each restaurant for a given month using joins and window functions.
 - Identify the most popular menu item for each restaurant for a given month using joins and window functions.
 - Created `fn_CalculateEmployeeSalary` to calculate employee salary based on the number of processed orders and employee position rank.
+
+## Stored Procedures
+
+- Created `sp_ResrvedTablesReport` to retrieve reserved tables within a specified date range.
