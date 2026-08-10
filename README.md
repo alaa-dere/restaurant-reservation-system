@@ -49,3 +49,4 @@ Key design decisions:
 - Calculate the average order amount processed by a specific employee.
 - Created `[Reservations Report]` to display reservation details along with customer and restaurant information.
 - Created `[Employees details]` to display employee information along with restaurant details.
+- Use a CTE to identify reservations that have two or more orders.
