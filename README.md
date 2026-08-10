@@ -45,3 +45,4 @@ Key design decisions:
 - List reservations for a specific customers.
 - List all employees with the Manager position.
 - List orders placed for a reservation with their menu items.
+- List menu items ordered for a specific reservation.
