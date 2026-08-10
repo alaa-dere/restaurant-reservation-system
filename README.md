@@ -46,3 +46,4 @@ Key design decisions:
 - List all employees with the Manager position.
 - List orders placed for a reservation with their menu items.
 - List menu items ordered for a specific reservation.
+- Calculate the average order amount processed by a specific employee.
