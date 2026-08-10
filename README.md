@@ -43,3 +43,5 @@ Key design decisions:
 ## Queries
 
 - List reservations for a specific customers.
+- List all employees with the Manager position.
+- List orders placed for a reservation with their menu items.
