@@ -50,3 +50,4 @@ Key design decisions:
 - Created `[Reservations Report]` to display reservation details along with customer and restaurant information.
 - Created `[Employees details]` to display employee information along with restaurant details.
 - Use a CTE to identify reservations that have two or more orders.
+- Rank restaurants by reservation frequency using aggregation.
