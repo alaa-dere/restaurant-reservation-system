@@ -40,3 +40,6 @@ Key design decisions:
 - All Foreign Keys are defined inline within `CREATE TABLE` statements, following table creation order based on dependency (Restaurants and Customers first, followed by dependent tables)
 - `Price` and `TotalAmount` use `DECIMAL(10,2)` to preserve currency precision
 
+## Queries
+
+- List reservations for a specific customers.
