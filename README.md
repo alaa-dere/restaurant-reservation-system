@@ -47,3 +47,4 @@ Key design decisions:
 - List orders placed for a reservation with their menu items.
 - List menu items ordered for a specific reservation.
 - Calculate the average order amount processed by a specific employee.
+- Created `[Reservations Report]` to display reservation details along with customer and restaurant information.
