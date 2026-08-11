@@ -64,3 +64,7 @@ Key design decisions:
 ## Triggers
 
 - Created `trg_AuditReservations` to log reservation details into the AuditLog table whenever a new reservation is created.
+
+## Query Plan Analysis
+
+- Selected five complex queries and analyzed their execution plans before adding indexes.
