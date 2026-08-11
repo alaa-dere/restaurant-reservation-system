@@ -60,3 +60,7 @@ Key design decisions:
 - Created `sp_ResrvedTablesReport` to retrieve reserved tables within a specified date range.
 - Created `sp_AddNewOrder` to validate reservation and employee records before inserting a new order.
 - Created `sp_FutureReservedTables` to retrieve all future reserved tables using a temporary table.
+
+## Triggers
+
+- Created `trg_AuditReservations` to log reservation details into the AuditLog table whenever a new reservation is created.
