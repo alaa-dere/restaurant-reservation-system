@@ -68,3 +68,4 @@ Key design decisions:
 ## Query Plan Analysis
 
 - Selected five complex queries and analyzed their execution plans before adding indexes.
+- Re-analyzed the execution plans for the selected queries after adding indexes to compare performance improvements.
