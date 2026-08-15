@@ -1,11 +1,13 @@
-with ReservationOrders
-as
+--Reservation’s Order with CTEs: Identify reservations which have 2 or more orders using CTEs.
+WITH ReservationOrders
+AS
 (
-select ReservationId,
-count(OrderId) as OrderCount
-from Orders 
+SELECT
+	ReservationId,
+	COUNT(OrderId) AS OrderCount
+FROM Orders 
 GROUP BY ReservationId
 )
-select ReservationId,OrderCount
-from ReservationOrders
-where OrderCount >= 2
+SELECT ReservationId,OrderCount
+FROM ReservationOrders
+WHERE OrderCount >= 2

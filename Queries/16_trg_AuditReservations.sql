@@ -1,27 +1,28 @@
-create table AuditLog
+--Design a trigger to log an entry into a separate AuditLog table whenever a table get reserved. The AuditLog should capture ResturantId, TableId, ReservationDate and ChangeDate.
+CREATE TABLE AuditLog
 (
-    AuditId int identity(1,1) primary key,
-    RestaurantId int NOT NULL,
-    TableId int NOT NULL,
-    ReservationDate datetime NOT NULL,
-    ChangeDate datetime NOT NULL
-);
-go
-create trigger trg_AuditReservations
-on Reservations
-after insert
-as begin
-    insert into AuditLog
+    AuditId INT IDENTITY(1,1) PRIMARY KEY,
+    RestaurantId INT NOT NULL,
+    TableId INT NOT NULL,
+    ReservationDate DATETIME NOT NULL,
+    ChangeDate DATETIME NOT NULL
+)
+GO
+CREATE TRIGGER trg_AuditReservations
+ON Reservations
+AFTER INSERT
+AS BEGIN
+    INSERT INTO AuditLog
     (
       RestaurantId,
       TableId,
       ReservationDate,
       ChangeDate
     )
-    select
+    SELECT
       RestaurantId,
       TableId,
       ReservationDate,
-      getdate()
-    from inserted
-end
+      GETDATE()
+    FROM inserted
+END

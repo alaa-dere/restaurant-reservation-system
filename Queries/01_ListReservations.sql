@@ -1,3 +1,4 @@
+--List of Reservations: Retrieve all reservations for a specific customers.
 SELECT
     r.ReservationId,
     c.FirstName,

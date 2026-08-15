@@ -1,26 +1,27 @@
-create index IX_Reservations_CustomerId
-on Reservations(CustomerId);
+--Create the needed Indexes to the Tech-Lib project you built earlier.
+CREATE INDEX IX_Reservations_CustomerId
+ON Reservations(CustomerId);
 
-create index IX_Reservations_RestaurantId
-on Reservations(RestaurantId);
+CREATE INDEX IX_Reservations_RestaurantId
+ON Reservations(RestaurantId);
 
-create index IX_Orders_ReservationId
-on Orders(ReservationId);
+CREATE INDEX IX_Orders_ReservationId
+ON Orders(ReservationId);
 
-create index IX_Orders_EmployeeId
-on Orders(EmployeeId);
+CREATE INDEX IX_Orders_EmployeeId
+ON Orders(EmployeeId);
 
-create index IX_OrderItems_OrderId
-on OrderItems(OrderId);
+CREATE INDEX IX_OrderItems_OrderId
+ON OrderItems(OrderId);
 
-create index IX_OrderItems_ItemId
-on OrderItems(ItemId);
+CREATE INDEX IX_OrderItems_ItemId
+ON OrderItems(ItemId);
 
-create index IX_MenuItems_RestaurantId
-on MenuItems(RestaurantId);
+CREATE INDEX IX_MenuItems_RestaurantId
+ON MenuItems(RestaurantId);
 
-create index IX_Employees_RestaurantId
-on Employees(RestaurantId);
+CREATE INDEX IX_Employees_RestaurantId
+ON Employees(RestaurantId);
 
-create index IX_Orders_OrderDate
-on Orders(OrderDate);
+CREATE INDEX IX_Orders_OrderDate
+ON Orders(OrderDate);

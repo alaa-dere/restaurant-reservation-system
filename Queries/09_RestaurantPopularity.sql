@@ -1,12 +1,11 @@
-select res.RestaurantId,
-res.Name,
-count(r.ReservationId) AS ReservationCount,
-rank() over(
-order by count(r.ReservationId) desc
-)AS PopularityRank
-from Restaurants res
-join Reservations r
-on res.RestaurantId = r.RestaurantId
-group by
-res.RestaurantId,
-res.Name;
+--Restaurant Popularity using Aggregation: Rank restaurants by the reservation frequency.
+SELECT
+	res.RestaurantId,
+	res.Name,
+	COUNT(r.ReservationId) AS ReservationCount,
+	RANK() OVER(
+	ORDER BY COUNT(r.ReservationId) DESC) AS PopularityRank
+FROM Restaurants res
+JOIN Reservations r
+ON res.RestaurantId = r.RestaurantId
+GROUP BY res.RestaurantId,res.Name;

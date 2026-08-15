@@ -1,3 +1,4 @@
+--Select 5 complex queries from the above queries and check their query plans. 
 -- Query 1: Orders and Menu Items
 SELECT
     r.ReservationId,
@@ -14,64 +15,62 @@ ON r.RestaurantId = res.RestaurantId
 WHERE r.CustomerId = 300;
 
 -- Query 8: Reservations With Multiple Orders Using CTE
-with ReservationOrders
-as
+WITH ReservationOrders
+AS
 (
-select ReservationId,
-count(OrderId) as OrderCount
-from Orders 
+SELECT
+	ReservationId,
+	COUNT(OrderId) AS OrderCount
+FROM Orders 
 GROUP BY ReservationId
 )
-select ReservationId,OrderCount
-from ReservationOrders
-where OrderCount >= 2
+SELECT ReservationId,OrderCount
+FROM ReservationOrders
+WHERE OrderCount >= 2
 
 -- Query 9: Restaurant Popularity
-select res.RestaurantId,
-res.Name,
-count(r.ReservationId) AS ReservationCount,
-rank() over(
-order by count(r.ReservationId) desc
-)AS PopularityRank
-from Restaurants res
-join Reservations r
-on res.RestaurantId = r.RestaurantId
-group by
-res.RestaurantId,
-res.Name;
+SELECT
+	res.RestaurantId,
+	res.Name,
+	COUNT(r.ReservationId) AS ReservationCount,
+	RANK() OVER(
+	ORDER BY COUNT(r.ReservationId) DESC) AS PopularityRank
+FROM Restaurants res
+JOIN Reservations r
+ON res.RestaurantId = r.RestaurantId
+GROUP BY res.RestaurantId,res.Name;
 
 -- Query 10: Popular Menu Item Per Restaurant
-with MenuItemPopularity as(
-select
-r.RestaurantId,
-res.Name as RestaurantName,
-m.ItemId,
-m.Name as MenuItemName,
-sum(oi.Quantity) as TotalOrdered,
-rank() over(
-partition by r.RestaurantId
-order by sum(oi.Quantity) desc) as ItemRank
-from Reservations r
-join Orders o
-on r.ReservationId = o.ReservationId
-join OrderItems oi
-on o.OrderId = oi.OrderId
-join MenuItems m
-on oi.ItemId = m.ItemId
-join Restaurants res
-on r.RestaurantId = res.RestaurantId
-where MONTH(o.OrderDate) = 8
-and YEAR(o.OrderDate) = 2026
-group by r.RestaurantId,res.Name,m.ItemId,m.Name)
+WITH MenuItemPopularity AS(
+SELECT
+	r.RestaurantId,
+	res.Name AS RestaurantName,
+	m.ItemId,
+	m.Name AS MenuItemName,
+	SUM(oi.Quantity) AS TotalOrdered,
+	RANK() OVER(
+	PARTITION BY r.RestaurantId
+	ORDER BY SUM(oi.Quantity) DESC) AS ItemRank
+FROM Reservations r
+JOIN Orders o
+ON r.ReservationId = o.ReservationId
+JOIN OrderItems oi
+ON o.OrderId = oi.OrderId
+JOIN MenuItems m
+ON oi.ItemId = m.ItemId
+JOIN Restaurants res
+ON r.RestaurantId = res.RestaurantId
+WHERE MONTH(o.OrderDate) = 8 AND YEAR(o.OrderDate) = 2026
+GROUP BY r.RestaurantId,res.Name,m.ItemId,m.Name)
 
-select
-RestaurantId,
-RestaurantName,
-ItemId,
-MenuItemName,
-TotalOrdered
-from MenuItemPopularity
-where ItemRank = 1;
+SELECT
+	RestaurantId,
+	RestaurantName,
+	ItemId,
+	MenuItemName,
+	TotalOrdered
+FROM MenuItemPopularity
+WHERE ItemRank = 1;
 
 -- Query 6: Reservations Report View
-select *from  [Reservations Report];
+SELECT *FROM  [Reservations Report];
